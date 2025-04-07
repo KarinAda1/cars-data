@@ -71,17 +71,13 @@
             box-shadow: 0 0 20px rgba(0,221,235,0.5);
             overflow: hidden;
         }
-        .tableau-embed iframe {
-            border: none;
+        .tableau-embed img {
             width: 100%;
             max-width: 1000px;
-            height: 800px;
+            height: auto;
             display: block;
             margin: 0 auto;
-        }
-        .fallback-message {
-            color: #ffeb3b;
-            font-style: italic;
+            border: none;
         }
         .stats-grid {
             display: grid;
@@ -113,8 +109,8 @@
             to { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 768px) {
-            .tableau-embed iframe {
-                height: 600px;
+            .tableau-embed img {
+                max-width: 100%;
             }
         }
     </style>
@@ -140,13 +136,11 @@
 
         <div class="section" id="tableau">
             <h2>Tableau Dashboard 🎨</h2>
-            <p>Dive into our Car Sales Dashboard - zoom, filter, and race through the data! 🏎️</p>
+            <p>Dive into our Car Sales Dashboard - check out the insights below! 🏎️</p>
             <div class="tableau-embed">
-                <iframe 
-                    src="https://public.tableau.com/views/sellingcar_17439584311470/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link" 
-                    title="Car Sales Data Visualization">
-                </iframe>
-                <p class="fallback-message">🚨 If the dashboard doesn’t load, GitHub Pages doesn’t support Tableau embeds due to security restrictions. Try hosting on a compatible server! 🔍</p>
+                <!-- Replace with your actual screenshot path after uploading to GitHub -->
+                <img src="./dashboard-screenshot.png" alt="Car Sales Dashboard" title="Car Sales Data Visualization">
+                <p>📊 Static view embedded for GitHub Pages compatibility.</p>
             </div>
         </div>
 
