@@ -69,15 +69,19 @@
             border-radius: 10px;
             margin: 1rem 0;
             box-shadow: 0 0 20px rgba(0,221,235,0.5);
-            overflow: hidden;
         }
-        .tableau-embed img {
-            width: 100%;
-            max-width: 1000px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border: none;
+        .tableau-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ffeb3b;
+            color: #333;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .tableau-link:hover {
+            transform: scale(1.05);
         }
         .stats-grid {
             display: grid;
@@ -108,11 +112,6 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @media (max-width: 768px) {
-            .tableau-embed img {
-                max-width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -136,9 +135,15 @@
 
         <div class="section" id="tableau">
             <h2>Tableau Dashboard 🎨</h2>
-            <p>צפה בגרף מכירות הרכבים שלנו למטה! 🏎️</p>
+            <p>Dive into our Car Sales Dashboard - zoom, filter, and race through the data! 🏎️</p>
             <div class="tableau-embed">
-                <img src="./car-sales-dashboard.png" alt="Car Sales Dashboard" title="Car Sales Data Visualization">
+                <p>🚨 Note: Tableau embedding isn’t supported on GitHub Pages due to security restrictions.</p>
+                <a href="https://public.tableau.com/views/sellingcar_17439584311470/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link" 
+                   target="_blank" 
+                   class="tableau-link">View Dashboard on Tableau Public 📊✨</a>
+                <p>🔍 Click above to interact with the full dashboard!</p>
+                <!-- Optional: Add a static image placeholder if you have one -->
+                <p>(Preview coming soon! Stay tuned! 🚗)</p>
             </div>
         </div>
 
@@ -162,12 +167,12 @@
 
         <div class="section" id="contact">
             <h2>Get in Touch 📬</h2>
-            <p>שאלות? שלח לנו מייל ל-<a href="mailto:carsales@analytics.com">carsales@analytics.com</a>! 😊</p>
+            <p>Questions? Rev up your inquiries at <a href="mailto:carsales@analytics.com">carsales@analytics.com</a>! 😊</p>
         </div>
     </div>
 
     <footer>
-        <p>© 2025 Car Sales Analytics | נבנה עם ❤️ & 🛠️</p>
+        <p>© 2025 Car Sales Analytics | Made with ❤️ & 🛠️</p>
     </footer>
 
     <script>
@@ -201,3 +206,4 @@
     </script>
 </body>
 </html>
+
