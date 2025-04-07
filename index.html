@@ -71,13 +71,13 @@
             box-shadow: 0 0 20px rgba(0,221,235,0.5);
             overflow: hidden;
         }
-        .tableau-embed iframe {
-            border: none;
+        .tableau-embed img {
             width: 100%;
             max-width: 1000px;
-            height: 800px;
+            height: auto;
             display: block;
             margin: 0 auto;
+            border: none;
         }
         .stats-grid {
             display: grid;
@@ -109,8 +109,8 @@
             to { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 768px) {
-            .tableau-embed iframe {
-                height: 600px;
+            .tableau-embed img {
+                max-width: 100%;
             }
         }
     </style>
@@ -136,12 +136,9 @@
 
         <div class="section" id="tableau">
             <h2>Tableau Dashboard 🎨</h2>
-            <p>Dive into our Car Sales Dashboard - zoom, filter, and race through the data! 🏎️</p>
+            <p>צפה בגרף מכירות הרכבים שלנו למטה! 🏎️</p>
             <div class="tableau-embed">
-                <iframe 
-                    src="https://public.tableau.com/views/sellingcar_17439584311470/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link" 
-                    title="Car Sales Data Visualization">
-                </iframe>
+                <img src="./dashboard-screenshot.png" alt="Car Sales Dashboard" title="Car Sales Data Visualization">
             </div>
         </div>
 
@@ -165,12 +162,12 @@
 
         <div class="section" id="contact">
             <h2>Get in Touch 📬</h2>
-            <p>Questions? Rev up your inquiries at <a href="mailto:carsales@analytics.com">carsales@analytics.com</a>! 😊</p>
+            <p>שאלות? שלח לנו מייל ל-<a href="mailto:carsales@analytics.com">carsales@analytics.com</a>! 😊</p>
         </div>
     </div>
 
     <footer>
-        <p>© 2025 Car Sales Analytics | Made with ❤️ & 🛠️</p>
+        <p>© 2025 Car Sales Analytics | נבנה עם ❤️ & 🛠️</p>
     </footer>
 
     <script>
