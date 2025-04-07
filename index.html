@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Sales Analytics 📊✨</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #fff;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            animation: slideIn 1s ease-out;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        nav {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+            transform: scale(1.1);
+            display: inline-block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .section {
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+            animation: fadeInUp 1s ease-out;
+        }
+        h2 {
+            color: #ffeb3b;
+            font-size: 2rem;
+            margin-top: 0;
+        }
+        .tableau-embed {
+            text-align: center;
+            padding: 1rem;
+            background: linear-gradient(45deg, #00ddeb, #ff00ff);
+            border-radius: 10px;
+            margin: 1rem 0;
+            box-shadow: 0 0 20px rgba(0,221,235,0.5);
+            overflow: hidden; /* Prevents iframe overflow issues */
+        }
+        .tableau-embed iframe {
+            border: none; /* Removes default iframe border */
+            width: 100%; /* Responsive width */
+            max-width: 1000px; /* Matches Tableau's recommended max */
+            height: 800px; /* Adjusted for car sales dashboard */
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0,0,0,0.2);
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .tableau-embed iframe {
+                height: 600px; /* Adjust for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Car Sales Analytics 🚗📈</h1>
+        <p>Driving Insights with Style! ✨</p>
+    </header>
+
+    <nav>
+        <a href="#overview">Overview 🌟</a>
+        <a href="#tableau">Tableau Insights 📊</a>
+        <a href="#stats">Key Stats 📍</a>
+        <a href="#contact">Contact Us 📧</a>
+    </nav>
+
+    <div class="container">
+        <div class="section" id="overview">
+            <h2>Analytics Overview 🌈</h2>
+            <p>Explore the world of car sales with our interactive dashboard! Get behind the wheel of data and steer towards success. 😎</p>
+        </div>
+
+        <div class="section" id="tableau">
+            <h2>Tableau Dashboard 🎨</h2>
+            <p>Dive into our Car Sales Dashboard below - zoom, filter, and race through the data! 🏎️</p>
+            <div class="tableau-embed">
+                <iframe 
+                    src="https://public.tableau.com/views/sellingcar_17439584311470/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link" 
+                    title="Car Sales Data Visualization">
+                </iframe>
+                <p>🔍 Interact with the dashboard to uncover trends!</p>
+            </div>
+        </div>
+
+        <div class="section" id="stats">
+            <h2>Key Statistics 📊</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Cars Sold 🚘</h3>
+                    <p id="carCount">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Revenue 💰</h3>
+                    <p id="revenueCount">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Markets 🌍</h3>
+                    <p id="marketCount">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="contact">
+            <h2>Get in Touch 📬</h2>
+            <p>Questions? Rev up your inquiries at <a href="mailto:carsales@analytics.com">carsales@analytics.com</a>! 😊</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Car Sales Analytics | Made with ❤️ & 🛠️</p>
+    </footer>
+
+    <script>
+        // Animate stat counters
+        function animateCounter(id, end, duration) {
+            let start = 0;
+            const stepTime = Math.abs(Math.floor(duration / end));
+            const element = document.getElementById(id);
+            const timer = setInterval(() => {
+                start += 1;
+                element.textContent = id === 'revenueCount' ? `$${start}K` : start.toLocaleString();
+                if (start === end) clearInterval(timer);
+            }, stepTime);
+        }
+
+        // Start animations on page load
+        window.onload = () => {
+            animateCounter('carCount', 1500, 2000);
+            animateCounter('revenueCount', 250, 2000);
+            animateCounter('marketCount', 12, 2000);
+        };
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
